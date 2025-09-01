@@ -73,7 +73,7 @@ Returns a simple greeting message.
   "message": "Hello from Node.js!"
 }
 ```
-
+hohoho
 ### GET /api/time
 Returns current server time and timestamp.
 ```json
