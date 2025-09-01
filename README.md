@@ -82,7 +82,7 @@ Returns current server time and timestamp.
   "timestamp": 1704110400000
 }
 ```
-
+12439780579805124907815234
 ### POST /api/echo
 Echoes back the sent data with additional metadata.
 ```json
