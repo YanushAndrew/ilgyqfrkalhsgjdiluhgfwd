@@ -50,8 +50,8 @@ jobs:
         with:
           sarif_file: eslint-results.sarif
           wait-for-processing: true
-  build:
 
+  build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -60,16 +60,21 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8 # or your required pnpm version
-      - run: pnpm install
-      - run: pnpm run build --if-present
-      - run: pnpm test
+          version: 8
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build project
+        run: pnpm run build --if-present
+
+      - name: Run tests
+        run: pnpm test
