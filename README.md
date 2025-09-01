@@ -45,7 +45,7 @@ Once the server is running:
 4. View the JSON responses in real-time
 5. Use the Logs Viewer to monitor server activity
 6. Check server health and performance metrics
-slkdvjklsdjflksjdf
+some changes
 ## 📁 Project Structure
 
 ```
